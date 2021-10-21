@@ -7,6 +7,24 @@ using namespace std;
 
 data_input mainInput;
 
+void pitagoras_triple()
+{
+    int x = 0, y = 0, a = 0, b = 0, c = 0;
+
+    cout << " Podaj x ";
+    x = mainInput.data();
+
+    cout << " Podaj y ";
+    y = mainInput.data();
+
+    a = pow(x, 2) - pow(y, 2);
+    b = 2 * x * y;
+    c = pow(x, 2) + pow(y, 2);
+
+    cout << "Trojka pitagorejska ma boki o dlugosci " << a << ", " << b << ", " << c << ", ";
+
+}
+
 void binary(int bin)
 {
     if (bin >= 2) {
@@ -49,11 +67,10 @@ float potega(double might, float power)
     }
 }
 
-
 void rekursja_control()
 {
     int how_many = 0;
-    double podstawa = 0, strong = 0, power = 0;
+    double base = 0, strong = 0, power = 0;
     double might = 0, bin = 0, fib = 0, force = 0;
 
     cout << "Podaj co chcesz zrobic.\n 1 - potega\n 2 - zamiana na liczbe binarna\n 3 - ciag fibonacciego\n 4 - obliczenie silnii " << endl;
@@ -86,9 +103,14 @@ void rekursja_control()
 
     case 4:
         cout << "Podaj jaka liczbe chcesz zmienic na silnie ";
-        podstawa = mainInput.data();
-        strong = silnia(podstawa);
+        base = mainInput.data();
+        strong = silnia(base);
         cout << "Silnia wynosi " << strong << endl;
+        break;
+
+    default:
+        cout << "Podales zla liczbe.";
+        rekursja_control();
         break;
     }
 
@@ -171,7 +193,8 @@ int main()
 	{
 		system("cls");
 
-		cout << "Jezeli chcesz skorzystac z odpowiedniej funkcji podaj jej numer. \n 1 - obliczanie wieku \n 2 - obliczenia zwiazane z rekursja" << endl;
+		cout << "Jezeli chcesz skorzystac z odpowiedniej funkcji podaj jej numer. \n 1 - obliczanie wieku \n 2 - obliczenia zwiazane z rekursja" 
+             << " 3 - obliczanie trojki pitagorejskiej \n 9 - zakonczenie dzialania programu " << endl;
 
 		number = mainInput.data();
 
