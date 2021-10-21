@@ -7,6 +7,95 @@ using namespace std;
 
 data_input mainInput;
 
+void binary(int bin)
+{
+    if (bin >= 2) {
+        binary(bin / 2);
+        cout << bin % 2;
+    }
+    else
+        cout << 1;
+}
+
+void fibonacci(int fib)
+{
+    long long a = 0, b = 1;
+
+    for (int i = 0; i < fib; i++) {
+        cout << b << " ";
+        b += a;
+        a = b - a;
+    }
+}
+
+double silnia(int podstawa)
+{
+    if (podstawa == 0) {
+        return 1;
+    }
+    else
+        return silnia(podstawa - 1) * podstawa;
+}
+
+float potega(double might, float power)
+{
+    if (might == 0) {
+        return 1;
+    }
+
+    else {
+        cout << endl;
+        return potega(might - 1, power) * power;
+    }
+}
+
+
+void rekursja_control()
+{
+    int how_many = 0;
+    double podstawa = 0, strong = 0, power = 0;
+    double might = 0, bin = 0, fib = 0, force = 0;
+
+    cout << "Podaj co chcesz zrobic.\n 1 - potega\n 2 - zamiana na liczbe binarna\n 3 - ciag fibonacciego\n 4 - obliczenie silnii " << endl;
+    how_many = mainInput.data();
+
+    switch (how_many)
+    {
+    case 1:
+        cout << "Podaj jaka liczbe chcesz spotegowac ";
+        might = mainInput.data();
+        cout << "Podaj potege ";
+        power = mainInput.data();
+
+        force = potega(power, might);
+        cout << "Potega wynosi " << force << ".";
+        break;
+
+    case 2:
+        cout << "Jaka liczbe chcesz zamienic na liczbe binarna? ";
+        bin = mainInput.data();
+        binary(bin);
+        break;
+
+    case 3:
+        cout << "Ile chcesz wypisac wyrazow ci¹gu fibonacciego ? ";
+        fib = mainInput.data();
+        cout << "Ciag fibonacciego: ";
+        fibonacci(fib);
+        break;
+
+    case 4:
+        cout << "Podaj jaka liczbe chcesz zmienic na silnie ";
+        podstawa = mainInput.data();
+        strong = silnia(podstawa);
+        cout << "Silnia wynosi " << strong << endl;
+        break;
+    }
+
+    cout << endl;
+
+}
+
 void age()
 {
 
@@ -82,7 +171,7 @@ int main()
 	{
 		system("cls");
 
-		cout << "Jezeli chcesz skorzystac z odpowiedniej funkcji podaj jej numer. \n 1 - obliczanie wieku" << endl;
+		cout << "Jezeli chcesz skorzystac z odpowiedniej funkcji podaj jej numer. \n 1 - obliczanie wieku \n 2 - obliczenia zwiazane z rekursja" << endl;
 
 		number = mainInput.data();
 
@@ -92,8 +181,14 @@ int main()
             age();
 			break;
 		case 2:
-
+            rekursja_control();
 			break;
+        case 3:
+
+            break;
+        case 4:
+
+            break;
 
 		case 9:
 			return 0;
